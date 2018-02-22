@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+# Change to apps/v1beta2 for K8s < 1.9
+kind: StatefulSet
+metadata:
+  labels:
+    app: gitlab
+  name: gitlab
+spec:
+  serviceName: gitlab
+  replicas: 1
+  volumeClaimTemplates:
+  - metadata:
+      name: gitlab-persistent-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: __STORAGE_CLASS__
+      resources:
+        requests:
+          storage: 50Gi
+  template:
+    metadata:
+      labels:
+        app: gitlab
+    spec:
+      containers:
+      - name: gitlab
+        image: sameersbn/gitlab:10.1.1
+        imagePullPolicy: Always
+        envFrom:
+          - configMapRef:
+              name: gitlab-cm
+          - secretRef:
+              name: gitlab-secret
+        ports:
+        - containerPort: 22
+          name: ssh
+          protocol: TCP
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "2"
+            memory: 4Gi
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+        volumeMounts:
+        - name: gitlab-persistent-storage
+          mountPath: /home/git/data
