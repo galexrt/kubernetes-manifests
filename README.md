@@ -8,3 +8,4 @@ Most manifests will have a `README.md` or at least a [Manifest Index entry](#man
 ## Manifest Index
 * [`gitlab`](/gitlab) - [Edenmal - GitLab + Kubernetes: GitLab on top of Kubernetes](https://edenmal.moe/2017/11/04/GitLab-Kubernetes-GitLab-on-top-of-Kubernetes/).
 * [`gitlab-ci-runner`](/gitlab-ci-runner) - [Edenmal - GitLab + Kubernetes: Running CI Runners in Kubernetes](https://edenmal.moe/2017/08/31/GitLab-Kubernetes-Running-CI-Runners-in-Kubernetes/).
+* [`keycloak`](https://github.com/galexrt/kubernetes-keycloak) - Blog post to be done.
