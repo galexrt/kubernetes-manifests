@@ -1,0 +1,3 @@
+[submodule "keycloak"]
+	path = keycloak
+	url = https://github.com/galexrt/kubernetes-keycloak.git
