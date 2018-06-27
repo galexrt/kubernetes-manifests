@@ -9,6 +9,9 @@ metadata:
 spec:
   serviceName: gitlab
   replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab-ci-runner
   volumeClaimTemplates:
   - metadata:
       name: gitlab-persistent-storage

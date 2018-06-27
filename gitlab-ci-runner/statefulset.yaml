@@ -10,6 +10,9 @@ metadata:
 spec:
   updateStrategy:
     type: RollingUpdate
+  selector:
+    matchLabels:
+      app: gitlab-ci-runner
   replicas: 2
   serviceName: gitlab-ci-runner
   template:
